@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Flex basic demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		html{
+			background-color: #424242;
+			color: #fff;
+		}
+		body{
+			margin: 0;
+			color: #fff;
+			font-family: 'Inconsolata', monospace;
+			font-size: 20px;
+		}
+		.container{
+			width:90%;
+			margin: auto;
+		}
+		.editor{
+			 margin: 20px auto;
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 50px 200px;
+		}
+		.editor > pre{
+			padding: 5px;
+			background-color: #fff;
+			color:  #424242;
+			margin: 0px;
+			margin-right: 5%;
+			grid-row: 1 / -1;
+			border: 2px solid #ddd;
+			border-radius: 5px;
+			white-space: pre-wrap;
+			overflow: scroll;
+		}
+		.editor > h3{
+			text-align: center;
+		}
+		.editor > textarea{
+			margin:  20px 0 0 20px;
+			padding: 20px;
+			font-size: 1.2em;
+			border: 2px solid #ddd;
+			border-radius: 5px;
+		}
+		.box{
+			display: flex;
+			background-color: #fff;
+		}
+		.box-wrap{
+			flex-wrap: wrap
+		}
+		.box > .boxItem{
+			margin: 10px;
+			background-color: purple;
+			color: #fff;
+			width: 100px;
+			height: 100px;
+			font-size: 50px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.box  > .high{
+			height: 280px;
+			font-size: 80px;
+		}
+		.box  > .low{
+			height: 40px;
+			font-size: 10px;
+		}
+		.box  > .wrap{
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container"> 
+		<h1> Flex 子元素 布局示例</h1>
+		<hr>
+		<h2>#1 Align Self(flex 项的自身对齐)</h2>
+		<p>
+			align-self 允许你单独设置每个 flex item(flex项) 的对齐方式。
+			它会覆盖 flex container(flex 容器) 的 align-items 属性。默认情况下，所有 flex item(flex项) 的 align-self 属性均为 auto，他们继承了 flex 容器的 align-items 属性。
+		</p>
+		<div class="demo">
+			<div class="editor">
+					<pre> 
+							align-self: auto;
+
+					</pre>
+					<h3>Here is your code!</h3>
+					<textarea name="textarea" cols="60" rows="10" ></textarea>
+					
+			</div>
+			<div class="box box1">
+					<div class="boxItem">1</div>
+					<div class="boxItem high">2</div>
+					<div class="boxItem">3</div>
+					<div class="boxItem low self">demo</div>
+			</div>
+		</div>
+		<h2>#2  flex-basis</h2>
+		<p>
+			子元素 在主轴方向上大小。
+		</p>
+		<div class="demo">
+			<div class="editor">
+					<pre> 
+							 
+					</pre>
+					<h3>Here is your code!</h3>
+					<textarea name="textarea" cols="60" rows="10" ></textarea>
+					
+			</div>
+			<div class="box box1">
+				<div class="boxItem">1</div>
+				<div class="boxItem">2</div>
+				<div class="boxItem">3</div>
+				<div class="boxItem self">demo</div>
+			</div>
+		</div>
+		<h2>#3 flex-grow</h2>
+		<p>
+			<ul>
+				<li>flex-grow: 0; //默认值 不可拉伸</li>
+				<li>flex-grow: 1; // 可拉伸</li>
+			</ul>
+		</p>
+		<div class="demo">
+			<div class="editor">
+					<pre> 
+							display: flex;
+							flex-direction: rows;
+							align-items: baseline;
+					</pre>
+					<h3>Here is your code!</h3>
+					<textarea name="textarea" cols="60" rows="10" ></textarea>
+					
+			</div>
+			<div class="box box1">
+				<div class="boxItem">1</div>
+				<div class="boxItem  ">2</div>
+				<div class="boxItem">3</div>
+				<div class="boxItem  self">demo</div>
+			</div>
+		</div>
+		<h2>#4 flex-shink</h2>
+		<p>
+			<ul>
+				<li>flex-shrink: 1; //默认值 可伸缩</li>
+				<li>flex-shrink: 0; //不可伸缩</li>
+			</ul>
+			
+		</p>
+		<div class="demo">
+			<div class="editor">
+					<pre> 
+							display: flex;
+							flex-direction: rows;
+							flex-wrap: wrap;
+					</pre>
+					<h3>Here is your code!</h3>
+					<textarea name="textarea" cols="60" rows="10" ></textarea>
+					
+			</div>
+			<div class="box box_wrap">
+				<div class="boxItem  ">1</div>
+				<div class="boxItem  ">2</div>
+				<div class="boxItem  ">3</div>
+				<div class="boxItem  ">4</div>
+				<div class="boxItem self">demo</div>
+			 
+			</div>
+		</div>
+		<h2>#4 flex</h2>
+		<p>
+			flex: 2 1 300px; s等同于 flex: flex-grow flex-shrink   flex-basis;
+		</p>
+		
+	</div>
+
+	<script>
+		var editors = document.querySelectorAll('textarea');
+		function handleUpdate(){
+			const style = this.value;
+			console.log(this.parentNode.parentNode.querySelector('.self'))
+			this.parentNode.parentNode.querySelector('.self').style.cssText = style;
+		}
+		editors.forEach(editor => editor.addEventListener('input', handleUpdate));
+	</script>
+</body>
+</html>
