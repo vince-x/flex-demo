@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>输入附加组件</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <style>
+		 html{
+			 text-align: center;
+		 }
+		 body{
+			 width: 80%;
+			 margin: 10px auto;
+		 }
+		 
+		.inputAddOn {
+			display: flex;
+			margin-bottom: 1.5em;
+		}
+
+		.inputAddOn-field {
+			flex: 1;
+		}
+		.inputAddOn-field:not(:first-child) {
+			border-left: 0;
+		}
+		.inputAddOn-field:not(:last-child) {
+			border-right: 0;
+		}
+
+		.inputAddOn-item {
+			background-color: rgba(147, 128, 108, 0.1);
+			color: #666666;
+			font: inherit;
+			font-weight: normal;
+		}
+
+		.inputAddOn-field, .inputAddOn-item {
+			border: 1px solid rgba(147, 128, 108, 0.25);
+			padding: 0.5em 0.75em;
+		}
+		.inputAddOn-field:first-child, .inputAddOn-item:first-child {
+			border-radius: 2px 0 0 2px;
+		}
+		.inputAddOn-field:last-child , .inputAddOn-item:last-child {
+			border-radius: 0 2px 2px 0;
+		}
+
+	 </style>
+</head>
+<body>
+	<h2>带前标签的input </h2>
+	<div class="inputAddOn"> 
+			<span class="inputAddOn-item">数量</span>
+			<input class="inputAddOn-field" />
+	</div>
+	<div class="inputAddOn"> 
+			<input class="inputAddOn-field" />
+			<button class="inputAddOn-item">发送</button>
+	</div>
+	<div class="inputAddOn"> 
+		<span class="inputAddOn-item">数量</span>
+		<input class="inputAddOn-field" />
+		<button class="inputAddOn-item">发送</button>
+	</div>
+	<div class="inputAddOn"> 
+			<span class="inputAddOn-item">数量</span>
+			<input class="inputAddOn-field" />
+			<button class="inputAddOn-item">发送</button>
+	</div>
+</body>
+</html>

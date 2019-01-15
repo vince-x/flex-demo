@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>媒体对象</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.mediaFlex{
+			display: flex;
+			align-items: flex-start;
+			background-color: #eee;
+			margin: 1em;
+		}
+		.inside{
+			margin: 0;
+			background: #ddd;
+		}
+		.flex-img{
+			margin: 1em;
+		}
+		.reverse{
+			flex-direction: row-reverse;
+		}
+		.mediaFlex > .flex-text{
+			flex:1;
+			margin: 1em;
+			 
+		}
+	</style>
+</head>
+<body>
+	<h2>基础媒体对象</h2>
+	<div class="mediaFlex">
+		<div class="flex-img">
+			<img src="./kitten.jpg">
+		</div>
+		<div class="flex-text">
+			<div class="flex-cell">
+				<h4>标准媒体对象</h4>
+			</div>
+			<div class="flex-cell">
+					<p>ba la ba la</p>
+				</div>
+		</div>
+	</div>
+
+	<div class="mediaFlex reverse">
+			<div class="flex-img">
+				<img src="./kitten.jpg">
+			</div>
+			<div class="flex-text">
+				<div class="flex-cell">
+					<h4>逆序媒体对象</h4>
+				</div>
+				<div class="flex-cell">
+						<p>ba la ba la</p>
+					</div>
+		</div>
+	</div>
+	<h2>媒体嵌套对象</h2>
+	<div class="mediaFlex">
+			<div class="flex-img">
+				<img src="./kitten.jpg">
+			</div>
+			<div class="flex-text">
+				<div class="flex-cell">
+					<h4>标准媒体对象</h4>
+				</div>
+				<div class="flex-cell">
+						<p>ba la ba la</p>
+				</div>
+				<div class="mediaFlex inside">
+						<div class="flex-img">
+							<img src="./kitten.jpg">
+						</div>
+						<div class="flex-text">
+							<div class="flex-cell">
+									<p>ba la ba la</p>
+								</div>
+						</div>
+				</div>
+			</div>
+			
+	</div>
+</body>
+
+</html>
