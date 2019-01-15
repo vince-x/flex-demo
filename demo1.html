@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Flex basic demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		html{
+			background-color: #424242;
+			color: #fff;
+		}
+		body{
+			margin: 0;
+			color: #fff;
+			font-family: 'Inconsolata', monospace;
+			font-size: 20px;
+		}
+		.container{
+			width:90%;
+			margin: auto;
+		}
+		.editor{
+			 margin: 20px auto;
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 50px 200px;
+		}
+		.editor > pre{
+			padding: 5px;
+			background-color: #fff;
+			color:  #424242;
+			margin: 0px;
+			margin-right: 5%;
+			grid-row: 1 / -1;
+			border: 2px solid #ddd;
+			border-radius: 5px;
+			white-space: pre-wrap;
+			overflow: scroll;
+		}
+		.editor > h3{
+			text-align: center;
+		}
+		.editor > textarea{
+			margin:  20px 0 0 20px;
+			padding: 20px;
+			font-size: 1.2em;
+			border: 2px solid #ddd;
+			border-radius: 5px;
+		}
+		.box{
+			display: flex;
+			background-color: #fff;
+		}
+		.box-wrap{
+			flex-wrap: wrap
+		}
+		.box > .boxItem{
+			margin: 10px;
+			background-color: purple;
+			color: #fff;
+			width: 100px;
+			height: 100px;
+			font-size: 50px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.box  > .high{
+			height: 280px;
+			font-size: 80px;
+		}
+		.box  > .low{
+			height: 40px;
+			font-size: 10px;
+		}
+		.box  > .wrap{
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container"> 
+		<h1> Flex 容器 布局示例</h1>
+		<hr>
+		<h2>#1 flex-direction</h2>
+		<p>
+			Flexbox容器有两根轴线：主轴(main axis)和与之垂直的交叉轴(cross axis)
+		</p>
+		<div class="demo">
+			<div class="editor">
+					<pre> 
+							flex-direction: row|column|row-reverse|column-reverse;
+							 
+							display: flex;
+							flex-direction: rows;
+
+					</pre>
+					<h3>Here is your code!</h3>
+					<textarea name="textarea" cols="60" rows="10" id="editor_1"></textarea>
+					
+			</div>
+			<div class="box box1">
+				<div class="boxItem">1</div>
+				<div class="boxItem">2</div>
+				<div class="boxItem">3</div>
+				<div class="boxItem">4</div>
+			</div>
+		</div>
+		<h2>#2 justify-content(flex 项在交叉轴上的对齐 )</h2>
+		<p>
+			justify-content属性有 5 个值可供你使用：
+			<ul>
+				<li>flex-end</li>
+				<li>flex-start</li>
+				<li>center</li>
+				<li>space-between  两端对齐</li>
+				<li>space-around 每个矩形子元素(flex项)的两边产生一个相同大小的间隔，也就是说两端的矩形子元素(flex项)和容器之间的间隔大小正好是两个矩形子元素(flex项)之间间隔大小的一半（每个矩形子元素产生的间隔不会重叠，所以间隔变成两倍</li>
+
+			</ul>
+		</p>
+		<div class="demo">
+			<div class="editor">
+					<pre> 
+							display: flex;
+							flex-direction: rows;
+							justify-content:  flex-start;
+					</pre>
+					<h3>Here is your code!</h3>
+					<textarea name="textarea" cols="60" rows="10" id="editor_1"></textarea>
+					
+			</div>
+			<div class="box box1">
+				<div class="boxItem">1</div>
+				<div class="boxItem">2</div>
+				<div class="boxItem">3</div>
+				<div class="boxItem">4</div>
+			</div>
+		</div>
+		<h2>#3 align-items(flex 项在交叉轴上的对齐)</h2>
+		<p>
+			align-items属性有 5 个值可供你使用：
+			<ul>
+				<li>flex-end</li>
+				<li>flex-start</li>
+				<li>center</li>
+			</ul>
+		</p>
+		<div class="demo">
+			<div class="editor">
+					<pre> 
+							display: flex;
+							flex-direction: rows;
+							align-items: baseline;
+					</pre>
+					<h3>Here is your code!</h3>
+					<textarea name="textarea" cols="60" rows="10" id="editor_1"></textarea>
+					
+			</div>
+			<div class="box box1">
+				<div class="boxItem">1</div>
+				<div class="boxItem high">2</div>
+				<div class="boxItem">3</div>
+				<div class="boxItem low">4</div>
+			</div>
+		</div>
+		<h2>#4 flex-wrap</h2>
+		<p>
+			flex-wrap属性有 3 个值可供你使用：
+			<ul>
+				<li>wrap</li>
+				<li>nowrap</li>
+				<li>wrap-reverse || 反转 wrap 排列</li>
+			</ul>
+			
+		</p>
+		<div class="demo">
+			<div class="editor">
+					<pre> 
+							display: flex;
+							flex-direction: rows;
+							flex-wrap: wrap;
+					</pre>
+					<h3>Here is your code!</h3>
+					<textarea name="textarea" cols="60" rows="10" id="editor_1"></textarea>
+					
+			</div>
+			<div class="box box_wrap">
+				<div class="boxItem wrap">1</div>
+				<div class="boxItem wrap">2</div>
+				<div class="boxItem wrap">3</div>
+				<div class="boxItem wrap">4</div>
+				<div class="boxItem wrap">5</div>
+				<div class="boxItem wrap">6</div>
+				<div class="boxItem wrap">7</div>
+				<div class="boxItem wrap">8</div>
+			</div>
+		</div>
+		<hr>
+		<h1>子元素 Flex </h1>
+		
+	</div>
+
+	<script>
+		var basics = document.querySelectorAll('pre');
+		var editors = document.querySelectorAll('textarea');
+		function handleUpdate(){
+			const style = this.value;
+			this.parentNode.parentNode.querySelector('.box').style.cssText = style;
+		}
+		function loadCss(){
+			console.log(1);
+			const basicStyle = this.innerHTML;
+			this.parentNode.parentNode.querySelector('.box').style.cssText = basicStyle;
+		}
+		basics.forEach(basic => basic.addEventListener('beforeunload', loadCss));
+		editors.forEach(editor => editor.addEventListener('input', handleUpdate));
+	</script>
+</body>
+</html>
